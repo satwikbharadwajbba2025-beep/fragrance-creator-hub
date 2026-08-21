@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import bottleAsset from "@/assets/bottle.png.asset.json";
-import tubeAsset from "@/assets/tube.png.asset.json";
+import bottleAsset from "@/assets/bottle.webp.asset.json";
+import tubeAsset from "@/assets/tube.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,18 +17,11 @@ export const Route = createFileRoute("/")({
         content: "A midnight blue eau de parfum built on bergamot, smoked oud and vanilla musk.",
       },
     ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap",
-      },
-      { rel: "preload", as: "image", href: bottleAsset.url, fetchpriority: "high" },
-    ],
+    links: [{ rel: "preload", as: "image", href: bottleAsset.url, fetchpriority: "high" }],
   }),
   component: Orion,
 });
+
 
 const notes = [
   {
