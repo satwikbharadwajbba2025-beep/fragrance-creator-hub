@@ -184,3 +184,8 @@
   letter-spacing: 0.35em;
 }
 
+
+@utility cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}

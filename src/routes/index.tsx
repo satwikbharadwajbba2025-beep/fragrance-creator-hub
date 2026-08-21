@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import bottleAsset from "@/assets/bottle.webp.asset.json";
 import tubeAsset from "@/assets/tube.webp.asset.json";
+import bottleSmAsset from "@/assets/bottle-sm.webp.asset.json";
+import tubeSmAsset from "@/assets/tube-sm.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,7 +19,16 @@ export const Route = createFileRoute("/")({
         content: "A midnight blue eau de parfum built on bergamot, smoked oud and vanilla musk.",
       },
     ],
-    links: [{ rel: "preload", as: "image", href: bottleAsset.url, fetchpriority: "high" }],
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: bottleSmAsset.url,
+        imagesrcset: `${bottleSmAsset.url} 340w, ${bottleAsset.url} 410w`,
+        imagesizes: "(max-width: 767px) 68vw, 380px",
+        fetchpriority: "high",
+      },
+    ],
   }),
   component: Orion,
 });
@@ -94,7 +105,9 @@ function Orion() {
 
         <div className="flex justify-center">
           <img
-            src={bottleAsset.url}
+            src={bottleSmAsset.url}
+            srcSet={`${bottleSmAsset.url} 340w, ${bottleAsset.url} 410w`}
+            sizes="(max-width: 767px) 68vw, 380px"
             alt="Sarkar Orion midnight blue chess-king perfume bottle"
             width={410}
             height={640}
@@ -105,7 +118,7 @@ function Orion() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-card/40 py-20">
+      <section className="cv-auto border-y border-border bg-card/40 py-20">
         <div className="mx-auto max-w-6xl px-5">
           <h2 className="text-3xl sm:text-4xl">The composition</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -123,10 +136,12 @@ function Orion() {
         </div>
       </section>
 
-      <section id="buy" className="py-20">
+      <section id="buy" className="cv-auto py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
           <img
-            src={tubeAsset.url}
+            src={tubeSmAsset.url}
+            srcSet={`${tubeSmAsset.url} 330w, ${tubeAsset.url} 390w`}
+            sizes="(max-width: 767px) 62vw, 330px"
             alt="Sarkar Orion navy cylindrical gift packaging"
             width={390}
             height={592}
